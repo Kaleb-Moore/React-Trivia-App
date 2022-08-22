@@ -4,7 +4,15 @@ import Button from './Button.jsx';
 export default function App() {
 
     const [playingQuiz, setPlayingQuiz] = useState(false)
+    const [questions, setQuestions] = useState()
 
+    useEffect(function() {
+        fetch("https://opentdb.com/api.php?amount=4&type=multiple")
+            .then(res => res.json())
+            .then(data => setQuestions(data))
+        }, [])
+        console.log(questions)
+        
     function startQuiz() {
         setPlayingQuiz(oldPlay => !oldPlay);
     }
