@@ -43,6 +43,7 @@ export default function App() {
                 :
                 <div>
                     {cards}
+                    <Button value="Check answers" />
                 </div>
             }
         </div>
